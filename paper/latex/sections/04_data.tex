@@ -1,0 +1,21 @@
+\section{Data and Speech Restoration}\label{sec:data}
+
+\subsection{Data Sources}
+
+Our analysis combines three data sources, all provided as part of the Project 3 course package and audited for provenance in Gates 1--3.
+
+\textbf{UN General Debate speeches.} The speech corpus contains 7,866 country-year observations of annual UN General Debate addresses, 1970--2020, covering 179 non-P5 UN member states. Each speech is stored as English-translated text. The corpus was extracted from the UN General Debate Corpus (Baturo et al.\ 2017; Jankin et al.\ 2024), distributed via Harvard Dataverse (doi:10.7910/DVN/0TJX8Y) and obtained through the public GitHub mirror \texttt{jradius/un-general-debates}. Per the course codebook, 47.85\% of speeches (3,764 of 7,866) were truncated to 16,000 characters in the supplied \texttt{speeches.parquet} file.
+
+\textbf{Country-year panel.} The structured panel contains 8,803 rows (1970--2020, 11 columns) and includes the instrument (UNSC membership), treatment (US economic and military aid from the USAID Greenbook), and validation signals (UN voting agreement \texttt{us\_agree} and ideal point estimates from Bailey, Strezhnev, and Voeten 2017). After excluding 401 merge-artifact rows with \texttt{iso3='.'} and P5 countries, the analytic panel contains 8,402 country-year observations.
+
+\textbf{Control variables.} We supplement the course-provided panel with three country-level controls from the World Bank World Development Indicators: log GDP per capita (constant 2015 US\$, indicator NY.GDP.PCAP.KD), log population (SP.POP.TOTL), and trade openness as a percentage of GDP (NE.TRD.GNFS.ZS). Trade openness serves as a proxy for US trade exposure; bilateral US trade data was unavailable through IMF Direction of Trade Statistics and UN Comtrade APIs at the time of analysis.
+
+\textbf{Aid deflation.} Aid is reported in historical (nominal) US dollars. We deflate to constant 2020 USD using the US Consumer Price Index from the World Bank (FP.CPI.TOTL, base 2010=100). The deflation factor ranges from 6.67 in 1970 to 1.00 in 2020. We create real aid variables for total, economic, and military aid and take $\log(1+x)$ transformations for regression analysis.
+
+\subsection{Speech Restoration}
+
+Of the 7,866 speeches in the supplied corpus, 3,764 (47.85\%) bear a \texttt{truncated=True} flag, indicating that the text was cut to fit the 16,000-character size budget. For each truncated speech, we attempted to locate the complete version in the full UNGDC corpus (10,579 text files from the GitHub mirror). Restoration proceeded via exact-prefix matching: if the supplied truncated text was an exact prefix of a longer source text with matching \texttt{(iso3, year)} metadata, the truncated speech was automatically replaced with the complete version. If an exact match was unavailable, a normalized-prefix comparison (NFKC Unicode normalization, whitespace normalization) was attempted. All 3,764 truncated speeches were successfully restored through exact-prefix ($n=3{,}607$) or normalized-prefix ($n=157$) matching, with zero cases requiring manual review. The restored corpus is stored in \texttt{data/processed/speeches\_full.parquet}.
+
+\input{../../tables/main/table_descriptives.tex}
+
+Table~\ref{tab:descriptives} presents descriptive statistics. Our analysis sample comprises 7,719 country-year observations across 179 countries. UNSC membership is observed in 470 observations (6.1\%). The v3.1 stance score distribution is notably skewed toward positive values (mean = 1.098, median = 2), with 51.7\% of speeches receiving the maximum score ($+2$). Real US aid averages \$172 million (2020 USD) but is zero for 18.1\% of observations. The stance measure correlates weakly with UN voting agreement ($r=0.085$) and ideal point estimates ($r=0.130$).

@@ -1,0 +1,54 @@
+# Restricted research data: never commit these paths.
+/data/
+/inputs/
+/outputs/
+/logs/
+/interaction/
+/private/
+/restricted/
+
+# Row-level and archival data formats.
+*.parquet
+*.dta
+*.sav
+*.feather
+*.arrow
+*.xlsx
+*.xls
+*.jsonl
+*.zip
+*.tar
+*.tar.gz
+
+# Generated batch material may contain source text or evidence spans.
+/code/measurement/v3_1_scripts/
+*blinded*sample*
+*validation*sample*
+*speech_stance_scores*
+*analysis_panel*
+/manifests/data_audit.json
+/research/data_audit.md
+
+# Local environments and secrets.
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+tmp/
+
+# LaTeX intermediates; retain the release PDF.
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc

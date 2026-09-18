@@ -1,0 +1,36 @@
+{
+  "source": "dataverse",
+  "persistent_id": "doi:10.7910/DVN/0TJX8Y",
+  "version": "14.0",
+  "version_state": "RELEASED",
+  "release_time": "2026-03-08T00:02:05Z",
+  "dataset_id": 3017227,
+  "retrieved_at": "2026-07-29T10:12:58Z",
+  "status": "blocked-by-guestbook",
+  "blocker_detail": "HTTP 400, guestbook_id=483",
+  "fallback": "github/jradius/un-general-debates (per codebook.md)",
+  "files": [
+    {
+      "file_id": 13591893,
+      "filename": "README.txt",
+      "bytes": 3811,
+      "md5": "72aa364274688bb0537b78187ce825fe",
+      "downloadable": false
+    },
+    {
+      "file_id": 13591894,
+      "filename": "Speakers_by_session.xlsx",
+      "bytes": 483416,
+      "md5": "557d23ac18ae9cff264d536edd4097e1",
+      "downloadable": false
+    },
+    {
+      "file_id": 13591895,
+      "filename": "UNGDC_1946-2025.tar.gz",
+      "bytes": 71280312,
+      "md5": "81bdd06086d9e7c4e67026acb7325df3",
+      "downloadable": false,
+      "target": true
+    }
+  ]
+}

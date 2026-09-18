@@ -1,0 +1,16 @@
+name: Validate public release
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check for restricted data and validate aggregate results
+        run: python code/audit/validate_public_release.py

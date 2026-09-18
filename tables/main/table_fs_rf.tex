@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{First Stage and Reduced Form Across Fixed-Effect Specifications}
+\label{tab:fs_rf}
+\begin{tabular}{lrrrrrr}
+\toprule
+& \multicolumn{3}{c}{\textbf{First Stage}} & \multicolumn{3}{c}{\textbf{Reduced Form}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Specification & Coef. & SE & $F$ & Coef. & SE & $p$ \\
+\midrule
+  None                 & +0.1450 & 0.5395 & 0.1 & -0.0747 & 0.0644 & 0.2458 \\
+  Year FE              & +0.2694 & 0.5293 & 0.3 & -0.0684 & 0.0652 & 0.2946 \\
+  Region FE            & +0.2794 & 0.4780 & 0.3 & -0.0721 & 0.0635 & 0.2559 \\
+  Region x Year FE     & +0.4270 & 0.4604 & 0.9 & -0.0663 & 0.0645 & 0.3040 \\
+  Country FE           & -0.1118 & 0.2215 & 0.3 & -0.1041 & 0.0558 & 0.0623 \\
+  Country+Year FE      & -0.0575 & 0.2080 & 0.1 & -0.0996 & 0.0560 & 0.0754 \\
+\midrule
+\multicolumn{7}{p{0.85\textwidth}}{\footnotesize\textit{Note:} $N=7,719$, 179 countries, 1970--2020. Standard errors clustered at ISO3 level. First-stage $F=t^2$ on UNSC. Causal gate requires $F>10$ (Staiger and Stock, 1997). KW2006 specifications are Region FE and Region~x~Year~FE. No specification meets the $F>10$ threshold.}\\
+\end{tabular}
+\end{table}

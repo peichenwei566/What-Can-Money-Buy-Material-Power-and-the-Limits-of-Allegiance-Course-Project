@@ -1,0 +1,27 @@
+\section{Robustness and Heterogeneity}\label{sec:robustness}
+
+\input{../../tables/appendix/table_robustness.tex}
+
+Table~\ref{tab:robustness} presents robustness checks across alternative specifications and subsamples. All specifications include country and year fixed effects with standard errors clustered at the ISO3 level.
+
+\subsection{Aid Components and Timing}
+
+Separating economic from military aid does not recover a significant first stage. For economic aid alone, the UNSC coefficient is $\hat{\beta} = -0.306$ ($F = 1.7$, $p = 0.187$). For military aid alone, $\hat{\beta} = +0.027$ ($F = 0.0$, $p = 0.922$). Neither component produces a significant relationship.
+
+Lagging the UNSC indicator by one or two years produces similarly null results: UNSC at $t-1$ yields $\hat{\beta} = -0.126$ ($F = 0.3$), and UNSC at $t-2$ yields $\hat{\beta} = -0.297$ ($F = 1.7$). The negative sign on lagged UNSC argues against a delayed aid response.
+
+\subsection{Sample Periods and Subsets}
+
+The first stage is not significant in any historical subsample. During the Cold War period (1970--1991, $N=2{,}713$), $\hat{\beta} = -0.078$ ($F = 0.0$). In the post-Cold War period (1992--2020, $N=5{,}006$), $\hat{\beta} = -0.004$ ($F = 0.0$). After 2001 ($N=3{,}511$), $\hat{\beta} = -0.120$ ($F = 0.2$).
+
+Restricting to speeches that explicitly mention the United States ($N=7{,}115$) does not alter the pattern: $\hat{\beta} = -0.149$ ($F = 0.5$). The reduced form under this restriction remains negative ($\hat{\delta} = -0.103$, $p = 0.097$), consistent with the full-sample estimate.
+
+The verified-complete and original-untruncated subsamples yield identical null findings: first-stage $F$-statistics remain below 1, and reduced-form estimates are negative and not statistically significant.
+
+\subsection{Leave-One-Out Analysis}
+
+We re-estimate the first stage 179 times, each time removing one country from the sample. The UNSC coefficient ranges from $-0.137$ to $-0.005$, and the $F$-statistic never exceeds 0.5. No single country drives the null result. The three most influential countries (Austria, Qatar, and South Africa) shift the coefficient by at most 0.08 but leave the $F$-statistic below 1 and far from significance.
+
+\subsection{Summary of Robustness}
+
+Across 10 subsample specifications, 2 aid components, 2 aid lags, 179 leave-one-out iterations, and 6 fixed-effect variants, the maximum first-stage $F$-statistic observed is 1.7 (for economic aid alone). No specification approaches the $F>10$ threshold. The reduced form is consistently negative or null. The finding that UNSC membership does not predict US aid in this data---and does not predict pro-US speech stance---is robust to reasonable perturbations of the sample and specification.

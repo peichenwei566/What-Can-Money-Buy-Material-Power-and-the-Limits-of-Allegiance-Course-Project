@@ -1,0 +1,31 @@
+\section{Empirical Strategy}\label{sec:identification}
+
+\subsection{Estimand and Design}
+
+We estimate the local average treatment effect (LATE) of US aid on expressed pro-US speech stance for countries whose aid receipt is affected by UNSC membership \citep{imbens1994identification}. The structural equations are:
+
+\begin{align}
+\log(1 + \text{Aid}_{it}) &= \beta \cdot \unsc_{it} + \alpha_i + \gamma_t + \varepsilon_{it} \label{eq:fs} \\
+\text{Stance}_{it} &= \delta \cdot \unsc_{it} + \alpha_i + \gamma_t + \eta_{it} \label{eq:rf}
+\end{align}
+
+where $\unsc_{it}$ is an indicator for non-permanent UNSC membership, $\alpha_i$ is a country fixed effect, and $\gamma_t$ is a year fixed effect. Equation~\ref{eq:fs} is the first stage; Equation~\ref{eq:rf} is the reduced form. The 2SLS estimand---identified only if the first-stage $F$-statistic exceeds the pre-registered threshold of 10---is $\delta / \beta$.
+
+We estimate all specifications using ordinary least squares with country--year fixed effects and standard errors clustered at the ISO3 country level, following the implementation in \texttt{statsmodels} \citep{seabold2010statsmodels}. For coefficient indexing under $C(\text{iso3}) + C(\text{year})$ formulas, we index the UNSC coefficient by name (not by position) to avoid the parameter-order trap that produces spuriously high $F$-statistics when $C(\text{iso3})$ dummies shift the coefficient index.
+
+\subsection{Identification Threats}
+
+The exclusion restriction requires that UNSC membership affects General Debate speech content \emph{only} through changes in US aid. Four channels threaten this assumption:
+
+\begin{enumerate}
+\item \textbf{Status and identity effects.} Sitting on the Security Council may change how a country perceives itself and addresses global powers, independent of aid flows. A non-permanent member may adopt more diplomatic or great-power-aligned rhetoric simply because it now participates in Council deliberations.
+\item \textbf{Agenda exposure.} UNSC membership exposes countries to US diplomatic framing of security issues. This exposure may shift speech content---making references more frequent or differently toned---without any aid transfer.
+\item \textbf{Rhetorical consistency.} Countries may moderate their General Debate speeches to avoid contradicting positions taken in Council meetings, where their vote carries weight. This ``consistency channel'' operates through diplomatic logic, not financial inducement.
+\item \textbf{Temporal effects.} The two-year UNSC term creates anticipation and legacy effects: countries may change behavior before the term begins (campaigning for election) or after it ends (legacy of Council experience).
+\end{enumerate}
+
+To partially address these threats, we estimate an event-study specification with leads and lags around the UNSC term, and we report the reduced form---which does not require the exclusion restriction---as the primary self-standing result.
+
+\subsection{Causal Gate}
+
+We pre-register the Staiger--Stock \citep{staiger1997instrumental} $F>10$ rule as our causal gate. If the first-stage $F$-statistic on UNSC in equation~\ref{eq:fs} falls below 10, we do not report 2SLS estimates. Instead, we center the analysis on the reduced form (Equation~\ref{eq:rf}), event-study estimates, and descriptive evidence. We commit to this rule before inspecting any treatment-effect estimates and report whether the gate is open or closed.

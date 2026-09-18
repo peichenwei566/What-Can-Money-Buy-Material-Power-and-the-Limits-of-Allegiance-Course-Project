@@ -1,0 +1,23 @@
+\section{Measuring Rhetorical Stance}\label{sec:measurement}
+
+\subsection{Construct Definition}
+
+Our primary outcome is \emph{affective warmth/criticism toward the United States} expressed in a country's annual UN General Debate address. The construct captures emotional tone and evaluative stance---how a country \emph{feels} about the US based on its words---rather than policy agreement or institutional alignment. Scores range from $-2$ (strongly critical/hostile: the US is condemned as an aggressor or imperialist power) through $0$ (neutral, balanced, or absent US mention) to $+2$ (strongly warm/admiring: the US is described as a friend, partner, or moral exemplar). Two secondary dimensions---policy alignment and institutional order alignment---are scored independently but not used as primary outcomes.
+
+The full construct definition, including edge cases (quotation handling, negation, irony, historical narration, indirect references), is documented in the project's frozen stance construct memo (\texttt{research/stance\_construct.md}).
+
+\subsection{Scoring Method}
+
+We score speeches using large language model semantic analysis, specifically DeepSeek v4 Pro with temperature set to zero for deterministic output. The scoring prompt (version \texttt{us\_stance\_v3\_1}) instructs the model to identify two components: (1) an \emph{evidence span}---the text segment that demonstrates evaluative language toward the US---and (2) a \emph{target span}---the text segment that identifies the US as the referent. Both spans must be verbatim from the source text, with computed character offsets for auditability. This target-attribution requirement addresses a known failure mode of earlier keyword-based methods, which conflated references to ``Central America,'' ``Latin America,'' and ``the Organization of American States'' with references to the United States.
+
+The scoring pipeline was executed through a cron-based batch system processing 33 speeches every five minutes across 239 batches, for a total of 7,866 scored speeches. All 7,866 records pass schema validation, 100\% have \texttt{scoring\_engine\_type = llm\_semantic}, and 0\% use rule-based fallbacks.
+
+\subsection{Validation}
+
+We validate the v3.1 measure through a pre-registered blind comparison with independent AI scoring (Codex). The validation sample consists of 200 speeches stratified by era (Cold War/post-Cold War), region, score level, and restoration status, with zero overlap with any diagnostic development set used during rubric iteration. The independent validator receives only blinded review IDs, year, ISO3 code, analysis text, and the frozen rubric.
+
+Our pre-registered decision rule, committed before comparison, specifies: quadratic-weighted Cohen's $\kappa \geq 0.60$ = PASS; $0.40$--$0.60$ = CONDITIONAL; $<0.40$ = FAIL. The v3.1 measure achieves quadratic-weighted $\kappa = 0.646$ (PASS), with raw agreement of 74.0\% and mean absolute error of 0.285. The unweighted $\kappa$ of 0.414 falls below 0.60 but above 0.40---we adopt quadratic weighting as our primary metric given the ordinal nature of the five-point scale \citep{fleiss1973equivalence}. Directional conflicts (score sign reversal) occur in only a single speech.
+
+\subsection{Limitations}
+
+The v3.1 stance measure has two important limitations. First, the score distribution is heavily skewed toward positive values (51.7\% receive $+2$, the maximum), raising concerns about ceiling effects and limited discrimination in the upper range. Second, while the measure achieves acceptable inter-rater agreement with an independent AI validator ($\kappa=0.646$), its correlation with behavioral benchmarks---UN voting agreement ($r=0.085$) and ideal point estimates ($r=0.130$)---is weak. This may reflect a genuine gap between diplomatic rhetoric and voting behavior, but it may also indicate that our measure captures something other than genuine geopolitical alignment. We discuss construct validity further in Section~\ref{sec:discussion}.

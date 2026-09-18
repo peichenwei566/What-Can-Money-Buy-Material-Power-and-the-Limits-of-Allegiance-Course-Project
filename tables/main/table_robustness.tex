@@ -1,0 +1,24 @@
+\begin{table}[htbp]
+\centering
+\caption{Robustness Checks}
+\label{tab:robustness}
+\begin{tabular}{lrrrrrr}
+\toprule
+& \multicolumn{3}{c}{First Stage} & \multicolumn{3}{c}{Reduced Form} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+Subsample & Coef. & SE & $F$ & Coef. & SE & $p$ \\
+\midrule
+  Economic aid only         & -0.3056 & 0.2317 & 1.7 & — & — & — \\
+  Military aid only         & +0.0265 & 0.2716 & 0.0 & — & — & — \\
+  UNSC lag 1 year           & -0.1263 & 0.2146 & 0.3 & — & — & — \\
+  UNSC lag 2 years          & -0.2969 & 0.2293 & 1.7 & — & — & — \\
+  Cold War                  & -0.0778 & 0.3731 & 0.0 & -0.0582 & 0.1029 & 0.5718 \\
+  Post Cold War             & -0.0037 & 0.2066 & 0.0 & -0.1207 & 0.0646 & 0.0616 \\
+  Post 2001                 & -0.1203 & 0.2480 & 0.2 & -0.1252 & 0.0811 & 0.1228 \\
+  Us Mention                & -0.1486 & 0.2060 & 0.5 & -0.1027 & 0.0618 & 0.0969 \\
+  Verified                  & -0.0575 & 0.2080 & 0.1 & -0.0996 & 0.0560 & 0.0754 \\
+  Original                  & +0.0274 & 0.2754 & 0.0 & -0.1089 & 0.0808 & 0.1777 \\
+\bottomrule
+\multicolumn{7}{p{0.85\textwidth}}{\footnotesize\textit{Note:} All specifications include country and year fixed effects with standard errors clustered at ISO3 level. No first-stage $F$ exceeds 2.}\\
+\end{tabular}
+\end{table}

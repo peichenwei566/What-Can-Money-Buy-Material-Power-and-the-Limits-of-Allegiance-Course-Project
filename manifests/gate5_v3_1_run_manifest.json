@@ -1,0 +1,58 @@
+{
+  "run_id": "gate5-2026-07-30T02:04:05",
+  "git_commit": "ef641d0979b9ce1ac75af19fc5cc0657e39d238a",
+  "timestamp": "2026-07-30T02:04:05.311192+00:00",
+  "panel_sha256": "c2b15c20001639b10c96fa91f32e39e93f23bb9295f4229942f98b387c771af0",
+  "corpus_version": "data-restored-v1",
+  "stance_version": "stance-measure-v3.1",
+  "samples": {
+    "all_available": {
+      "n": 7719,
+      "n_countries": 179,
+      "year_min": 1970,
+      "year_max": 2020,
+      "unsc_share": 0.06088871615494235
+    },
+    "verified_complete": {
+      "n": 7719,
+      "n_countries": 179,
+      "year_min": 1970,
+      "year_max": 2020,
+      "unsc_share": 0.06088871615494235
+    },
+    "original_untruncated": {
+      "n": 4086,
+      "n_countries": 179,
+      "year_min": 1970,
+      "year_max": 2020,
+      "unsc_share": 0.053108174253548704
+    },
+    "validation_available": {
+      "n": 7654,
+      "n_countries": 179,
+      "year_min": 1970,
+      "year_max": 2020,
+      "unsc_share": 0.06127515024823622
+    }
+  },
+  "controls": [
+    "log_gdp_pc",
+    "log_pop",
+    "trade_pct_gdp"
+  ],
+  "aid_deflated_to": "real_2020_USD",
+  "cpi_source": "World Bank FP.CPI.TOTL",
+  "fe_specifications": [
+    "none",
+    "year",
+    "region",
+    "region_year",
+    "country",
+    "country_year"
+  ],
+  "cluster_level": "iso3",
+  "estimand": "LATE of US aid on pro-US speech stance for UNSC compliers",
+  "instrument": "unsc",
+  "treatment": "log_total_aid_real",
+  "outcome": "primary_stance_score"
+}

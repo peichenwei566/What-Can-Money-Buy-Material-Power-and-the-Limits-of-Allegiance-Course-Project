@@ -1,0 +1,17 @@
+# Keep GitHub's language summary focused on authored source code.
+code/measurement/v3_1_scripts/** linguist-generated=true
+logs/** linguist-generated=true
+manifests/** linguist-generated=true
+data/**/*.csv linguist-generated=true
+data/**/*.json linguist-generated=true
+tables/**/*.csv linguist-generated=true
+tables/**/*.tex linguist-generated=true
+
+# Normalize text files across platforms.
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf

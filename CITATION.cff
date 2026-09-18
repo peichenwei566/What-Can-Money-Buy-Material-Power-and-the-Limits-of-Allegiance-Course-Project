@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this project, please cite it using the metadata below."
+title: "What Can Money Buy? Material Power and the Limits of Allegiance"
+type: article
+authors:
+  - family-names: Wei
+    given-names: Peichen
+  - family-names: Chen
+    given-names: Junjie
+date-released: 2026-07-30
+abstract: >-
+  A text-as-data study of whether U.S. foreign aid changes expressed allegiance in
+  UN General Debate speeches, using restored speech text, a validated five-point
+  semantic stance measure, and panel fixed-effect designs.
+keywords:
+  - foreign aid
+  - UN Security Council
+  - UN General Debate
+  - text as data
+  - large language models
+  - instrumental variables

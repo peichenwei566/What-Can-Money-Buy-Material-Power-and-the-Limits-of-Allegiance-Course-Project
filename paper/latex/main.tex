@@ -1,0 +1,41 @@
+\documentclass[12pt,a4paper]{article}
+\input{preamble}
+
+\title{What Can Money Buy?\\
+Material Power and the Limits of Allegiance}
+\author{
+Peichen Wei \quad Junjie Chen\\[4pt]
+Renmin University of China\\[6pt]
+\textit{Working Paper}\\
+\textit{\today}
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/01_abstract}
+\clearpage
+
+\input{sections/02_introduction}
+\input{sections/03_literature}
+\input{sections/04_data}
+\input{sections/05_measurement}
+\input{sections/06_identification}
+\input{sections/07_results}
+\input{sections/08_robustness}
+\input{sections/09_discussion}
+\input{sections/10_conclusion}
+
+\clearpage
+\bibliography{references}
+
+\clearpage
+\appendix
+\section{Additional Specifications}
+The complete set of 72 model estimates across four named samples and six fixed-effect specifications is available in machine-readable format at \texttt{tables/machine\_readable/gate5\_v3\_1\_all\_results.csv}. The run manifest at \texttt{manifests/gate5\_v3\_1\_run\_manifest.json} documents input hashes, sample descriptors, cluster levels, and the Git commit for reproducibility.
+
+\input{tables/table_robustness}
+
+\end{document}

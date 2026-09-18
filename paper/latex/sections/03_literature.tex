@@ -1,0 +1,21 @@
+\section{Related Literature}\label{sec:literature}
+
+This paper engages three literatures: the UNSC--aid nexus, text-as-data measurement of diplomatic preferences, and weak-instrument inference.
+
+\subsection{UNSC Membership and Material Benefits}
+
+Kuziemko and Werker (2006) established the empirical case that UNSC non-permanent seats attract foreign aid. Using a panel of 179 countries (1946--2001), they estimate that UNSC membership increases US bilateral aid by approximately 59\% and that the effect operates through the United States' desire to influence Security Council votes. Dreher, Sturm, and Vreeland (2009a) extend this finding to World Bank project commitments, showing that UNSC members receive more and larger World Bank projects, with the mechanism channeling through US influence in multilateral institutions. Dreher, Sturm, and Vreeland (2009b) document parallel effects for IMF programs: UNSC membership increases both the probability of IMF program participation and loan amounts.
+
+The broader aid--voting literature confirms that material flows can shift observable diplomatic behavior. Dreher, Nunnenkamp, and Thiele (2008) find that US aid increases UN General Assembly voting alignment with the US, though the effect is small and concentrated in the post-Cold War period. Dreher and Sturm (2012) extend this finding to IMF and World Bank programs influencing UNGA votes. Vreeland and Dreher (2014) provide the comprehensive treatment of money and influence at the UNSC.
+
+\subsection{Text-based Measurement of Diplomatic Preferences}
+
+Our stance measure connects to the growing literature using UN General Debate speeches as data. Baturo, Dasandi, and Mikhaylov (2017) introduced the UN General Debate Corpus and demonstrated that Wordfish-scaled ideal points from speech text recover known patterns of state preferences. Jankin, Baturo, and Dasandi (2024) expanded the corpus to 2022 with metadata improvements. Our approach differs from existing applications in two ways: first, we target \emph{affective stance toward the United States specifically} rather than a general latent ideological dimension; second, we use LLM-based semantic scoring rather than bag-of-words scaling methods, which allows us to capture nuanced evaluative language, negation handling, and target attribution.
+
+\subsection{Weak Instruments and Causal Inference}
+
+The econometric literature on weak instruments is central to our analysis. Bound, Jaeger, and Baker (1995) demonstrated that even modest violations of instrument relevance can produce 2SLS estimates that are biased toward OLS, with finite-sample distortions that persist in large samples. Staiger and Stock (1997) proposed the $F>10$ rule of thumb as a diagnostic threshold and developed asymptotic approximations that perform better than standard asymptotics under weak identification. Andrews, Stock, and Sun (2019) survey modern best practices, recommending the Montiel Olea--Pflueger effective F-statistic and Anderson--Rubin confidence sets for weak-IV robust inference. We pre-register the Staiger--Stock $F>10$ threshold as our causal gate and report only reduced-form estimates when the gate is closed.
+
+\subsection{Threats to the Exclusion Restriction}
+
+Two theoretical contributions directly threaten the exclusion restriction in the UNSC--aid--speech IV design. Thompson (2006) argues that UNSC membership itself acts as an information-transmission mechanism that enables coercive diplomacy---membership on the Council signals information that alters state behavior \emph{independently} of aid flows. Bueno de Mesquita and Smith (2010) document pernicious domestic consequences of UNSC membership (increased repression and corruption), suggesting that the Council seat changes domestic political incentives through channels beyond aid. Both findings imply that even if the first stage were strong, the exclusion restriction might fail: UNSC membership could change speech content through diplomatic socialization, agenda exposure, or domestic political dynamics without operating through the aid channel.

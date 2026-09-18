@@ -1,0 +1,11 @@
+metric,value,ci_low,ci_high
+n_matched,200,,
+exact_match,0.485,,
+within_1,0.875,,
+mae,0.67,,
+spearman_r,0.061755798066875,,
+linear_kappa,0.10761854022376127,0.015205626630977239,0.20766187859108953
+quadratic_kappa,0.03823923798954998,,
+direction_conflicts,17,,
+target_attribution_validity,1.0,,
+evidence_span_verify,0.0,,
