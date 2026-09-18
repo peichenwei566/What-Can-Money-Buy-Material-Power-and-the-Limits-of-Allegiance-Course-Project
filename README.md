@@ -10,11 +10,11 @@ This was a co-authored course project by **Peichen Wei and Junjie Chen** for *In
 
 ### At a glance
 
-- Restored **3,764 truncated speeches**, producing a 1970–2020 panel of **7,866 speeches from 179 non-P5 countries**.
-- Combined speech text with U.S. foreign aid, temporary UNSC membership, UN voting alignment, and World Bank controls.
-- Built a five-point semantic measure of stance toward the United States, with verbatim target and evidence spans for auditability.
-- Validated the measure on a blinded, stratified sample of 200 speeches: **quadratic-weighted κ = 0.646**, 74.0% raw agreement, MAE = 0.285.
-- Estimated fixed-effect first-stage and reduced-form models, an event study, and robustness specifications with country-clustered standard errors.
+- **Reconstructed the text corpus:** restored 3,764 truncated UN General Debate speeches and assembled a reproducible 1970–2020 panel of **7,866 speeches from 179 non-P5 countries**.
+- **Built the research dataset:** linked the restored speeches to U.S. foreign aid, temporary UN Security Council membership, UN voting alignment, and World Bank macroeconomic controls.
+- **Developed an auditable LLM measurement system:** designed and deployed a semantic scoring pipeline that classified every speech on a five-point U.S.-stance scale and returned verbatim target and evidence spans for each judgment.
+- **Validated the LLM-generated outcome:** conducted a blinded, stratified 200-speech evaluation, achieving **quadratic-weighted κ = 0.646**, 74.0% raw agreement, and MAE = 0.285.
+- **Connected LLM measurement to causal inference:** used the resulting stance measure in fixed-effect first-stage and reduced-form models, an event study, and robustness specifications with country-clustered standard errors.
 
 ### Main finding
 
